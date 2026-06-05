@@ -1,0 +1,10 @@
+# v💩 忽略清單
+__pycache__/
+*.pyc
+*.pyo
+.env
+vpoop_baseline.json
+*.log
+.DS_Store
+venv/
+.venv/
