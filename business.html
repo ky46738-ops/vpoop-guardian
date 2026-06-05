@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v💩 Guardian 商業版 v1.0 - 讓說謊者💥謝謝的SaaS | 年營收$500萬美金方案</title>
+    <meta name="description" content="世界上第一個用區塊鏈+SHA256強制執行誠實的商用系統。MIT-💩 License。A_EQUALS_A。">
+    <style>
+        :root {
+            --poop-brown: #8B4513;
+            --poop-gold: #FFD700;
+            --poop-bg: #0a0a0a;
+            --poop-green: #00ff41;
+            --poop-red: #ff3b3b;
+            --poop-blue: #00bfff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            background: var(--poop-bg);
+            background-image:
+                radial-gradient(circle at 20% 50%, #2d1f0f 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, #1f0f2d 0%, transparent 50%);
+            color: #f0f0f0;
+            font-family: "Microsoft JhengHei", "SF Pro TC", sans-serif;
+            line-height: 1.9;
+            margin: 0;
+            padding: 0;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: var(--poop-gold); text-shadow: 0 0 10px rgba(255,215,0,0.5); border-bottom: 2px solid var(--poop-brown); padding-bottom: 15px; }
+        h1 { font-size: 3.2em; text-align: center; margin-top: 40px; }
+        h2 { font-size: 2.2em; margin-top: 50px; }
+        .nav { text-align: center; padding: 15px; background: rgba(0,0,0,0.5); }
+        .nav a { color: var(--poop-gold); text-decoration: none; margin: 0 15px; font-weight: bold; }
+        .nav a:hover { color: #fff; }
+        .hero { text-align: center; padding: 60px 20px; background: rgba(139,69,19,0.1); border-radius: 20px; margin: 30px 0; }
+        .constitution {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1f0f 100%);
+            border: 3px solid var(--poop-gold);
+            padding: 40px; margin: 40px 0; border-radius: 20px;
+            text-align: center; font-size: 1.5em;
+            box-shadow: 0 0 30px rgba(255,215,0,0.2);
+        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0; }
+        .card { background: rgba(30,30,30,0.8); border: 1px solid var(--poop-brown); padding: 25px; border-radius: 15px; transition: all 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(139,69,19,0.4); border-color: var(--poop-gold); }
+        .card h3 { color: var(--poop-green); border: none; margin-top: 0; }
+        .price-card { background: linear-gradient(135deg, #1a3a1a 0%, #0d1f0d 100%); border: 2px solid var(--poop-green); text-align: center; }
+        .price { font-size: 3em; color: var(--poop-gold); margin: 20px 0; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--poop-gold) 0%, #ffa500 100%); color: #000; padding: 15px 35px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.1em; margin: 10px; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn:hover { box-shadow: 0 0 25px var(--poop-gold); transform: scale(1.05); }
+        .btn-danger { background: linear-gradient(135deg, var(--poop-red) 0%, #cc0000 100%); color: #fff; }
+        code, pre { background: #000; color: var(--poop-green); padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid #333; }
+        pre { white-space: pre-wrap; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: rgba(20,20,20,0.8); }
+        th, td { border: 1px solid #444; padding: 15px; text-align: left; }
+        th { background: var(--poop-brown); color: var(--poop-gold); }
+        .warning { background: rgba(255,59,59,0.1); border-left: 5px solid var(--poop-red); padding: 20px; margin: 25px 0; border-radius: 10px; }
+        .revenue-box { background: rgba(0,255,65,0.1); border: 2px solid var(--poop-green); padding: 30px; border-radius: 15px; text-align: center; margin: 40px 0; }
+        .revenue-number { font-size: 4em; color: var(--poop-green); text-shadow: 0 0 20px var(--poop-green); }
+        .footer { text-align: center; margin-top: 80px; padding: 40px 20px; color: #666; border-top: 1px solid #333; }
+        #calculator { background: #111; padding: 30px; border-radius: 15px; margin: 30px 0; }
+        #calculator input { background: #000; color: var(--poop-green); border: 1px solid var(--poop-brown); padding: 10px; border-radius: 5px; width: 100px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">🛡️ 開源版（免費）</a>
+        <a href="business.html">💼 商業版</a>
+        <a href="https://github.com/ky46738-ops/vpoop-guardian" target="_blank">&#9733; GitHub</a>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>🛡 v💩 Guardian 商業版 v1.0 ☠️</h1>
+            <p style="font-size:1.5em;margin:20px 0;"><strong>世界上第一個用程式碼強制執行「誠實」的SaaS</strong></p>
+            <p>說謊者使用 → 滿螢💩 → 💥謝謝 → 你收錢</p>
+            <a href="#pricing" class="btn">💰 查看商業授權 $5000/年</a>
+            <a href="index.html" class="btn">⭐ 開源版免費下載</a>
+        </div>
+
+        <div class="constitution">
+            <h2>🌍 v💩 宇宙憲法</h2>
+            <p><strong>人生自古誰無💩</strong></p>
+            <p><strong>不要把別人拉的說成自己拉的。</strong></p>
+            <p><strong>屎會自己掉出來。</strong></p>
+            <p style="margin-top:25px;font-size:0.7em;color:#888;">A_EQUALS_A = True | 已寫入 Bitcoin 區塊鏈 #800,000</p>
+        </div>
+
+        <h2>🤔 這到底能幹嗺？3句話講完</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1. 對你</h3>
+                <p>你把合約、設計稿、程式碼丟進來。v💩算出 SHA256，寫進區塊鏈。</p>
+                <p><strong>結果：</strong>你擁有「數位時間戳+所有權證明」。誰都搶不走。</p>
+            </div>
+            <div class="card">
+                <h3>2. 對客戶</h3>
+                <p>客戶要驗證？你給他3樣東西：檔案、SHA256、區塊鏈連結。</p>
+                <p><strong>結果：</strong>3秒證明「這💩是你拉的」。客戶跋著付尾款。</p>
+            </div>
+            <div class="card">
+                <h3>3. 對說謊者</h3>
+                <p>他說「這💩是我拉的」。v💩比對 SHA256，發現不對。</p>
+                <p><strong>結果：</strong>觸發 <code>POOPED</code> 狀態。滿螢💩，證據自動寄給你律師。他💥謝謝。</p>
+            </div>
+        </div>
+
+        <h2 id="pricing">💰 商業方案</h2>
+        <div class="grid">
+            <div class="card price-card">
+                <h3>方案一：v💩 開光儀式</h3>
+                <div class="price">$2,000</div>
+                <p>/ 一次性</p>
+                <p>幫甲方部署v💩 Guardian</p>
+                <p>教育訓練：如何讓對手💥謝謝</p>
+                <p>附贈：MIT-💩 License授權書</p>
+                <a href="#contact" class="btn">預約開光</a>
+            </div>
+            <div class="card price-card">
+                <h3>方案二：v💩 SaaS 年費</h3>
+                <div class="price">$5,000</div>
+                <p>/ 年</p>
+                <p>無限次數 SHA256 + 上鏈</p>
+                <p>自動滿螢💩制裁系統</p>
+                <p>法律顧問諮詢 2小時</p>
+                <a href="#contact" class="btn btn-danger">讓對手💥謝謝</a>
+            </div>
+            <div class="card price-card">
+                <h3>方案三：v💩 企業版</h3>
+                <div class="price">$50,000</div>
+                <p>/ 年</p>
+                <p>私有化部署 + API</p>
+                <p>客製化「死亡軍令」</p>
+                <p>24小時律師待命熱線</p>
+                <a href="#contact" class="btn">聯繫銷售</a>
+            </div>
+        </div>
+
+        <!-- ROI 比較表 -->
+        <h2>📊 買v💩 vs 不買v💩：根本不是「費用」是「保險」</h2>
+        <table>
+            <tr><th>你付的錢</th><th>你買到什麼</th><th>如果沒買，會號多少</th><th>v💩評語</th></tr>
+            <tr><td><strong>$2,000</strong> 開光儀式</td><td>一次部署 + 教你怎麼讓人💥謝謝</td><td>被員工改合約，號 $20萬</td><td><strong>賺 100 倍</strong>。開光一次保終身</td></tr>
+            <tr><td><strong>$5,000/年</strong> SaaS</td><td>無限驗證 + 自動寄律師函</td><td>一年被客戶賴帳 2 次，號 $10萬</td><td><strong>賺 20 倍</strong>。比請法務便宜</td></tr>
+            <tr><td><strong>$50,000/年</strong> 企業版</td><td>客製化死亡軍令 + 律師熱線</td><td>一次商業機密外洩，號 $500萬</td><td><strong>賺 100 倍</strong>。這叫保險，不是開销</td></tr>
+        </table>
+
+        <!-- 競爭對比表 -->
+        <h2>😱 對比競爭者：為什麼唢付v💩？</h2>
+        <table>
+            <tr><th>產品</th><th>功能</th><th>年費</th><th>v💩評語</th></tr>
+            <tr><td><strong>DocuSign</strong></td><td>電子簽名，防不了他簽完又改PDF</td><td>$300~$4,800/年</td><td><strong>他只能證明簽過，不能證明沒被改</strong></td></tr>
+            <tr><td><strong>Varonis</strong></td><td>企業級檔案稽核</td><td>$50,000/年起跳</td><td><strong>功能跟v💩一樣，但沒有滿螢💩</strong></td></tr>
+            <tr><td><strong>律師顧問費</strong></td><td>出事再幫你告</td><td>$300/小時</td><td><strong>v💩是「預防」他說謊。律師是「事後」幫你吵架</strong></td></tr>
+            <tr><td><strong>你員工薪水</strong></td><td>1個稽核員</td><td>$60,000/年</td><td><strong>他會請假，會離職。v💩 7x24小時不上廁所</strong></td></tr>
+            <tr><td><strong>v💩 Guardian</strong></td><td>預防+裉證+滿螢💩+自動💥謝謝</td><td>$5,000/年</td><td><strong>最便宜</strong>。還送你快樂</td></tr>
+        </table>
+        <p>記帳時科目寫：「數位因果律保險費」。</p>
+
+        <!-- 開源 vs 商業對照 -->
+        <h2>🎭 開源版 vs 商業版：兩個都是💩，價錢不一樣</h2>
+        <table>
+            <tr><th>項目</th><th>開源版 (index.html)</th><th>商業版 (business.html)</th><th>v💩評語</th></tr>
+            <tr><td><strong>價格</strong></td><td><code>$0</code> 永遠免費</td><td><code>$5,000/年</code> 起跳</td><td><strong>都是💩，價錢不一樣</strong></td></tr>
+            <tr><td><strong>功能</strong></td><td>SHA256驗證 + 滿螢💩</td><td>一鍵上鏈 + 自動律師函 + 24hr熱線</td><td><strong>你出錢，我出力</strong></td></tr>
+            <tr><td><strong>授權</strong></td><td>MIT-💩 License</td><td>商用授權 + 發票</td><td><strong>愛用哪個用哪個</strong></td></tr>
+            <tr><td><strong>客服</strong></td><td>GitHub Issue，愛回不回</td><td>專人服務，30分鐘回應</td><td><strong>$5000買的是我的時間</strong></td></tr>
+            <tr><td><strong>目的</strong></td><td>讓全世界都會用💩制裁</td><td>讓你老闆願意付錢買💩</td><td><strong>一個傳教，一個收錢</strong></td></tr>
+            <tr><td><strong>結果</strong></td><td>說謊者💥謝謝</td><td>說謊者💥謝謝 + 你變有錢</td><td><strong>都是💥謝謝，但你比較爽</strong></td></tr>
+        </table>
+
+        <div class="revenue-box" id="calculator">
+            <h2>💵 產値計算機：v💩能幫你賺多少？</h2>
+            <p>假設你一年遇到 <input type="number" id="liars" value="10" min="1"> 個說謊的甲方</p>
+            <p>平均每個案子違約金 <input type="number" id="penalty" value="50000" min="1000"> 美金</p>
+            <button class="btn" onclick="calculateRevenue()">計算我的v💩年產値</button>
+            <div class="revenue-number" id="result">$500,000</div>
+            <p>美金 / 年。這就是「誠實」的市場價格。</p>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ 法律免責聲明</h3>
+            <p>v💩 Guardian 不會發動物理攻擊。它只會：1.產生證據 2.寄送郵件 3.跳滿螢💩動畫。</p>
+            <p>「💥謝謝」指的是對方的「商業信用、社會名聲、法律地位」💥謝謝，不是物理上的💥謝謝。</p>
+            <p>請勿用於非法用途。我們不生產💩，我們只是讓說謊的💩自己掉出來。</p>
+        </div>
+
+        <h2 id="contact">📧 聯繫開光：讓你的對手💥謝謝</h2>
+        <div style="background:rgba(30,30,30,0.8);border:1px solid var(--poop-brown);padding:25px;border-radius:15px;">
+            <p>商業合作 / 開光儀式 / 法律諮詢</p>
+            <p><strong>Email：</strong> <code>ceo@vpoop-guardian.org</code></p>
+            <p><strong>GitHub：</strong> <a href="https://github.com/ky46738-ops/vpoop-guardian" target="_blank" style="color:var(--poop-gold);">ky46738-ops/vpoop-guardian</a></p>
+            <p><strong>報價暗號：</strong>跟我說「我要讓甲方💥謝謝」，直接打 8 折。</p>
+        </div>
+
+        <div class="footer">
+            <p style="font-size:2em;">✨♻️🕳️💣😂🐕💩👑☠️⛓️💰🎪✅</p>
+            <p>v💩 Guardian 商業版 v1.0 | © 2026 VPoop Inc.</p>
+            <p>我們不生產💩，我們只是數位世界的廁所之神。</p>
+            <p>A_EQUALS_A = True | 本網站已受v💩憲法保護</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateRevenue() {
+            const liars = document.getElementById('liars').value;
+            const penalty = document.getElementById('penalty').value;
+            const total = liars * penalty;
+            document.getElementById('result').innerText = '$' + Number(total).toLocaleString();
+        }
+        calculateRevenue();
+    </script>
+</body>
+</html>
