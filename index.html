@@ -1,1 +1,579 @@
-final_html_placeholder
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v💩 Guardian 開源版 — 人生自古誰無💩，不要把別人拉的說成自己拉的</title>
+    <meta name="description" content="世界上第一個用 SHA256 強制執行誠實的開源工具。免費。MIT-💩 License。A_EQUALS_A = True。">
+    <meta property="og:title" content="v💩 Guardian — 讓說謊者💥謝謝的開源工具">
+    <meta property="og:description" content="人生自古誰無💩，不要把別人拉的說成自己拉的。">
+    <style>
+        :root {
+            --poop-brown: #8B4513;
+            --poop-gold: #FFD700;
+            --poop-bg: #0a0a0a;
+            --poop-green: #00ff41;
+            --poop-red: #ff3b3b;
+            --poop-blue: #00bfff;
+            --poop-surface: rgba(30,30,30,0.85);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--poop-bg);
+            background-image:
+                radial-gradient(circle at 15% 50%, #2d1f0f 0%, transparent 50%),
+                radial-gradient(circle at 85% 20%, #1f0f2d 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, #0f2d1f 0%, transparent 40%);
+            color: #f0f0f0;
+            font-family: "Microsoft JhengHei", "SF Pro TC", "PingFang TC", "Noto Sans TC", sans-serif;
+            line-height: 1.9;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: sticky; top: 0; z-index: 100;
+            text-align: center; padding: 14px 20px;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(139,69,19,0.4);
+        }
+        .nav a {
+            color: var(--poop-gold); text-decoration: none;
+            margin: 0 14px; font-weight: bold; font-size: 0.95em;
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: #fff; }
+
+        /* ── CONTAINER ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px 24px; }
+
+        /* ── HEADINGS ── */
+        h1, h2, h3 {
+            color: var(--poop-gold);
+            text-shadow: 0 0 10px rgba(255,215,0,0.4);
+        }
+        h1 { font-size: clamp(2em, 6vw, 3.5em); text-align: center; margin: 50px 0 10px; line-height: 1.2; }
+        h2 { font-size: clamp(1.4em, 3vw, 2.2em); margin-top: 60px; padding-bottom: 14px; border-bottom: 2px solid var(--poop-brown); }
+        h3 { font-size: 1.1em; margin-bottom: 10px; }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center; padding: 70px 20px 60px;
+            background: rgba(139,69,19,0.08);
+            border: 1px solid rgba(139,69,19,0.3);
+            border-radius: 24px; margin: 30px 0 50px;
+        }
+        .hero-tagline {
+            font-size: clamp(1.1em, 2.5vw, 1.6em);
+            color: #ddd; margin: 18px auto 10px; max-width: 700px;
+        }
+        .hero-sub {
+            font-size: 1em; color: #888; margin-bottom: 32px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0,255,65,0.1); border: 1px solid var(--poop-green);
+            color: var(--poop-green); font-size: 0.85em; font-weight: bold;
+            padding: 4px 14px; border-radius: 999px; margin-bottom: 28px;
+            letter-spacing: 0.05em;
+        }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 10px; }
+
+        /* ── CONSTITUTION ── */
+        .constitution {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1f0f 100%);
+            border: 3px solid var(--poop-gold);
+            padding: 44px 40px; margin: 50px 0; border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255,215,0,0.15);
+        }
+        .constitution h2 { border: none; margin-top: 0; }
+        .constitution p { font-size: clamp(1.1em, 2.5vw, 1.6em); margin: 10px 0; }
+        .constitution .meta { font-size: 0.72em; color: #666; margin-top: 20px; }
+
+        /* ── GRID & CARDS ── */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin: 28px 0; }
+        .card {
+            background: var(--poop-surface);
+            border: 1px solid var(--poop-brown);
+            padding: 26px; border-radius: 16px;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(139,69,19,0.35);
+            border-color: var(--poop-gold);
+        }
+        .card h3 { color: var(--poop-green); border: none; margin-top: 0; }
+        .card-icon { font-size: 2.2em; margin-bottom: 12px; }
+
+        /* ── STEP FLOW ── */
+        .steps { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+        .step {
+            display: flex; align-items: flex-start; gap: 18px;
+            background: var(--poop-surface); border: 1px solid rgba(139,69,19,0.5);
+            padding: 22px 24px; border-radius: 14px;
+        }
+        .step-num {
+            flex-shrink: 0; width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--poop-brown), #5c2a00);
+            color: var(--poop-gold); font-weight: bold; font-size: 1.2em;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+        .step-content h3 { color: var(--poop-gold); margin-bottom: 6px; }
+
+        /* ── CODE ── */
+        code, pre {
+            background: #000; color: var(--poop-green);
+            padding: 3px 8px; border-radius: 6px;
+            font-family: "Cascadia Code", "Fira Code", monospace; font-size: 0.9em;
+            border: 1px solid #1a1a1a;
+        }
+        pre {
+            padding: 20px 22px; overflow-x: auto;
+            white-space: pre; line-height: 1.7;
+            margin: 16px 0; border-radius: 12px;
+        }
+        pre .comment { color: #555; }
+
+        /* ── TABLE ── */
+        table { width: 100%; border-collapse: collapse; margin: 22px 0; background: rgba(20,20,20,0.8); border-radius: 12px; overflow: hidden; }
+        th, td { border: 1px solid #2a2a2a; padding: 14px 16px; text-align: left; }
+        th { background: var(--poop-brown); color: var(--poop-gold); font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.04em; }
+        tr:hover td { background: rgba(139,69,19,0.08); }
+
+        /* ── BUTTONS ── */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--poop-gold) 0%, #ffa500 100%);
+            color: #000; padding: 13px 30px; text-decoration: none;
+            border-radius: 10px; font-weight: bold; font-size: 1em;
+            transition: box-shadow 0.25s, transform 0.2s; border: none; cursor: pointer;
+        }
+        .btn:hover { box-shadow: 0 0 28px var(--poop-gold); transform: scale(1.04); }
+        .btn-outline {
+            background: transparent; color: var(--poop-gold);
+            border: 2px solid var(--poop-gold); padding: 11px 28px;
+        }
+        .btn-outline:hover { background: rgba(255,215,0,0.1); box-shadow: 0 0 20px rgba(255,215,0,0.3); transform: scale(1.03); }
+        .btn-green {
+            background: linear-gradient(135deg, var(--poop-green) 0%, #00cc33 100%);
+            color: #000;
+        }
+        .btn-green:hover { box-shadow: 0 0 28px var(--poop-green); }
+
+        /* ── VERIFIER ── */
+        .verifier {
+            background: #050505; border: 2px solid var(--poop-brown);
+            border-radius: 18px; padding: 32px; margin: 30px 0;
+        }
+        .verifier h3 { color: var(--poop-gold); font-size: 1.3em; margin-bottom: 20px; }
+        .file-drop {
+            border: 2px dashed rgba(139,69,19,0.6); border-radius: 14px;
+            padding: 40px 20px; text-align: center; cursor: pointer;
+            transition: border-color 0.25s, background 0.25s;
+            margin-bottom: 18px;
+        }
+        .file-drop:hover, .file-drop.dragover {
+            border-color: var(--poop-gold); background: rgba(255,215,0,0.04);
+        }
+        .file-drop-icon { font-size: 2.8em; margin-bottom: 10px; }
+        .file-drop p { color: #888; font-size: 0.95em; }
+        #file-input { display: none; }
+        .hash-result {
+            background: #000; border: 1px solid #222; border-radius: 10px;
+            padding: 16px 18px; font-family: monospace; font-size: 0.88em;
+            word-break: break-all; min-height: 54px; color: var(--poop-green);
+            transition: all 0.3s;
+        }
+        .hash-compare { display: flex; gap: 12px; margin-top: 12px; align-items: stretch; }
+        .hash-compare input {
+            flex: 1; background: #000; color: #f0f0f0;
+            border: 1px solid var(--poop-brown); border-radius: 8px;
+            padding: 10px 14px; font-family: monospace; font-size: 0.88em;
+        }
+        .verdict {
+            display: none; margin-top: 18px; padding: 16px 20px;
+            border-radius: 12px; font-size: 1.1em; font-weight: bold; text-align: center;
+        }
+        .verdict.pass { background: rgba(0,255,65,0.1); border: 2px solid var(--poop-green); color: var(--poop-green); }
+        .verdict.fail { background: rgba(255,59,59,0.1); border: 2px solid var(--poop-red); color: var(--poop-red); }
+
+        /* ── STATES ── */
+        .state-badge {
+            display: inline-block; padding: 4px 14px; border-radius: 999px;
+            font-size: 0.8em; font-weight: bold; letter-spacing: 0.05em;
+            font-family: monospace;
+        }
+        .state-clean { background: rgba(0,255,65,0.15); color: var(--poop-green); border: 1px solid var(--poop-green); }
+        .state-pooped { background: rgba(255,59,59,0.15); color: var(--poop-red); border: 1px solid var(--poop-red); }
+        .state-pending { background: rgba(255,215,0,0.15); color: var(--poop-gold); border: 1px solid var(--poop-gold); }
+
+        /* ── POOPED ANIMATION ── */
+        #poop-rain { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; display: none; }
+        .poop-emoji {
+            position: absolute; top: -60px; font-size: 2.2em;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.7; }
+        }
+
+        /* ── MISC ── */
+        .warning {
+            background: rgba(255,59,59,0.08); border-left: 5px solid var(--poop-red);
+            padding: 20px 22px; margin: 28px 0; border-radius: 10px;
+        }
+        .info-box {
+            background: rgba(0,191,255,0.07); border-left: 5px solid var(--poop-blue);
+            padding: 20px 22px; margin: 28px 0; border-radius: 10px;
+        }
+        .footer {
+            text-align: center; margin-top: 90px; padding: 44px 20px;
+            color: #555; border-top: 1px solid #1a1a1a;
+        }
+        .footer a { color: var(--poop-gold); text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .hash-compare { flex-direction: column; }
+            .step { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Poop Rain -->
+<div id="poop-rain"></div>
+
+<!-- NAV -->
+<nav class="nav">
+    <a href="index.html">🛡️ 開源版（免費）</a>
+    <a href="business.html">💼 商業版</a>
+    <a href="vpoop_bible.html">📖 v💩 聖經</a>
+    <a href="https://github.com/ky46738-ops/vpoop-guardian" target="_blank" rel="noopener">★ GitHub</a>
+</nav>
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">✅ 開源版 · 永久免費 · MIT-💩 License</div>
+        <h1>🛡️ v💩 Guardian</h1>
+        <p class="hero-tagline"><strong>人生自古誰無💩</strong><br>不要把別人拉的說成自己拉的。</p>
+        <p class="hero-sub">世界上第一個用 SHA256 強制執行「誠實」的工具。<br>你的💩，就是你的。他的💩，就是他的。<strong>屎會自己掉出來。</strong></p>
+        <div class="btn-group">
+            <a href="#verifier" class="btn btn-green">🔬 立即驗💩</a>
+            <a href="https://github.com/ky46738-ops/vpoop-guardian" target="_blank" rel="noopener" class="btn">⬇️ 下載原始碼</a>
+            <a href="business.html" class="btn btn-outline">💼 查看商業版</a>
+        </div>
+    </div>
+
+    <!-- CONSTITUTION -->
+    <div class="constitution">
+        <h2>🌍 v💩 宇宙憲法</h2>
+        <p><strong>人生自古誰無💩</strong></p>
+        <p><strong>不要把別人拉的說成自己拉的。</strong></p>
+        <p><strong>屎會自己掉出來。</strong></p>
+        <p class="meta">A_EQUALS_A = True &nbsp;|&nbsp; 已寫入 Bitcoin 區塊鏈 #800,000 &nbsp;|&nbsp; 本條款永久有效</p>
+    </div>
+
+    <!-- WHAT IS IT -->
+    <h2>🤔 這到底是什麼？</h2>
+    <p style="margin:20px 0 10px;">v💩 Guardian 是一個<strong>開源的誠信驗證工具</strong>。它的核心邏輯極其簡單：</p>
+    <div class="grid">
+        <div class="card">
+            <div class="card-icon">📄</div>
+            <h3>你把💩拉出來</h3>
+            <p>任何檔案——合約、設計稿、程式碼、郵件截圖——丟進來，立刻得到一個 <code>SHA256</code> 雜湊值。</p>
+            <p style="margin-top:10px;color:#888;font-size:0.9em;">這個值是你的💩的指紋。全宇宙唯一。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3>你把指紋鎖起來</h3>
+            <p>把 SHA256 寫進區塊鏈，或截圖存好，或寄給律師。<strong>時間戳不可篡改。</strong></p>
+            <p style="margin-top:10px;color:#888;font-size:0.9em;">你的💩，有了法律意義上的出生證明。</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⚖️</div>
+            <h3>有人說「這💩是我拉的」</h3>
+            <p>讓他把那份檔案也丟進來。SHA256 不一樣？他的謊言當場<strong>💥謝謝</strong>。</p>
+            <p style="margin-top:10px;color:#888;font-size:0.9em;">SHA256 不會說謊。人會。</p>
+        </div>
+    </div>
+
+    <!-- HOW TO USE -->
+    <h2>🚀 怎麼用：3步驟讓說謊者💥謝謝</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h3>上傳你的原始檔案</h3>
+                <p>把你的合約、設計稿、程式碼拖進下方驗證器。它會立刻計算 SHA256 雜湊值。<strong>這個值就是你的所有權證明。</strong></p>
+                <p style="color:#888;font-size:0.9em;margin-top:8px;">💡 檔案不會上傳到任何伺服器。所有計算在你的瀏覽器本地完成。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h3>儲存你的 SHA256</h3>
+                <p>把那串雜湊值：截圖、寄給自己 email、傳到群組、或上鏈（<a href="business.html" style="color:var(--poop-gold);">商業版提供一鍵上鏈</a>）。</p>
+                <p style="color:#888;font-size:0.9em;margin-top:8px;">💡 時間戳就是你的護身符。愈早存，愈有力。</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h3>有爭議？開驗</h3>
+                <p>把他聲稱的「原始檔」也丟進去。跟你存的 SHA256 比一比。<strong>不一樣 = 他改過 = 💥謝謝。</strong></p>
+                <p style="color:#888;font-size:0.9em;margin-top:8px;">💡 把驗證結果截圖，連同你的原始 SHA256 存檔一起，就是一套完整的舉證材料。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VERIFIER -->
+    <h2 id="verifier">🔬 線上驗💩器（純前端，不上傳）</h2>
+    <div class="verifier">
+        <h3>📂 拖放檔案或點擊選取</h3>
+        <div class="file-drop" id="drop-zone" onclick="document.getElementById('file-input').click()">
+            <div class="file-drop-icon">📁</div>
+            <p>把你的合約、設計稿、程式碼拖進來</p>
+            <p style="font-size:0.8em;margin-top:6px;color:#555;">支援任意格式 · 檔案不離開你的電腦</p>
+        </div>
+        <input type="file" id="file-input" />
+
+        <div style="margin-bottom:10px;font-size:0.9em;color:#888;">計算結果 SHA256：</div>
+        <div class="hash-result" id="hash-output">等待檔案...</div>
+
+        <div style="margin-top:22px;margin-bottom:10px;font-size:0.9em;color:#888;">（選填）貼上對方提供的 SHA256 進行比對：</div>
+        <div class="hash-compare">
+            <input type="text" id="compare-input" placeholder="貼上你存好的或對方聲稱的 SHA256..." />
+            <button class="btn" onclick="compareHash()">⚖️ 比對</button>
+        </div>
+        <div class="verdict" id="verdict"></div>
+
+        <div style="margin-top:20px;text-align:right;">
+            <button class="btn btn-outline" style="font-size:0.85em;padding:8px 18px;" onclick="copyHash()">📋 複製 SHA256</button>
+            <button class="btn btn-outline" style="font-size:0.85em;padding:8px 18px;margin-left:8px;" onclick="triggerPoop()">💩 模擬 POOPED</button>
+        </div>
+    </div>
+
+    <!-- STATES -->
+    <h2>📊 v💩 三大狀態</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>狀態</th>
+                <th>代碼</th>
+                <th>意思</th>
+                <th>建議行動</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="state-badge state-clean">✅ CLEAN</span></td>
+                <td><code>A_EQUALS_A = True</code></td>
+                <td>SHA256 完全吻合。這💩確實是你拉的。</td>
+                <td>安心收款，安心交付。</td>
+            </tr>
+            <tr>
+                <td><span class="state-badge state-pending">⏳ PENDING</span></td>
+                <td><code>WAITING_FOR_SHIT</code></td>
+                <td>尚未上鏈或尚未有爭議。</td>
+                <td>儘早存好 SHA256，別拖。</td>
+            </tr>
+            <tr>
+                <td><span class="state-badge state-pooped">💩 POOPED</span></td>
+                <td><code>A_EQUALS_A = False</code></td>
+                <td>SHA256 不吻合。有人改過了，或在說謊。</td>
+                <td>截圖保存，交律師。說謊者💥謝謝。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CODE EXAMPLE -->
+    <h2>💻 Python 版指令碼</h2>
+    <p style="margin:16px 0 12px;">不想用瀏覽器？直接跑 Python：</p>
+    <pre><span class="comment"># v💩 Guardian — 計算 SHA256</span>
+import hashlib
+
+def vpoop_hash(filepath):
+    sha256 = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        for chunk in iter(lambda: f.read(65536), b""):
+            sha256.update(chunk)
+    digest = sha256.hexdigest()
+    print(f"你的💩指紋：{digest}")
+    return digest
+
+<span class="comment"># 使用方式</span>
+my_hash = vpoop_hash("contract_v1.pdf")
+
+<span class="comment"># 比對（驗證對方有沒有改）</span>
+their_hash = input("貼上他聲稱的 SHA256：").strip()
+if my_hash == their_hash:
+    print("✅ A_EQUALS_A = True  → 這💩確實是你拉的")
+else:
+    print("💩 A_EQUALS_A = False → 有人說謊。他💥謝謝。")</pre>
+    <p style="margin-top:12px;">完整版（含自動截圖、上鏈、滿螢💩）請看 <a href="https://github.com/ky46738-ops/vpoop-guardian" target="_blank" rel="noopener" style="color:var(--poop-gold);">GitHub 原始碼</a>。</p>
+
+    <!-- WHY SHA256 -->
+    <h2>🧠 為什麼 SHA256 能讓說謊者💥謝謝？</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>🔢 唯一性</h3>
+            <p>相同的輸入永遠產生相同的輸出。任何一個字元被改動，SHA256 就<strong>完全不同</strong>。改了逗號？不同。改了空格？不同。改了日期？不同。</p>
+        </div>
+        <div class="card">
+            <h3>🔒 不可逆性</h3>
+            <p>給你 SHA256，你無法還原成原始檔案。它是<strong>指紋，不是鑰匙</strong>。存了它，你就有了所有權的時間戳，對方無法偽造。</p>
+        </div>
+        <div class="card">
+            <h3>⚡ 即時性</h3>
+            <p>本工具完全在瀏覽器本地運算。不需要網路、不需要帳號、不上傳任何資料。你的機密合約永遠不離開你的電腦。</p>
+        </div>
+        <div class="card">
+            <h3>🌐 通用性</h3>
+            <p>SHA256 是 ISO 標準。法院、銀行、區塊鏈、數位簽章都用這個。你的證據格式，<strong>全球通用</strong>。</p>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2>🎭 開源版 vs 商業版</h2>
+    <table>
+        <thead>
+            <tr><th>項目</th><th>開源版（你在這裡）</th><th>商業版</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>價格</strong></td><td><code>$0</code> 永遠免費</td><td><code>$5,000/年</code> 起跳</td></tr>
+            <tr><td><strong>SHA256 驗證</strong></td><td>✅ 有，純前端</td><td>✅ 有，加上鏈</td></tr>
+            <tr><td><strong>區塊鏈上鏈</strong></td><td>❌ 需自行處理</td><td>✅ 一鍵上鏈</td></tr>
+            <tr><td><strong>滿螢💩制裁動畫</strong></td><td>✅ 有（點按鈕試試）</td><td>✅ 有，加自動寄律師函</td></tr>
+            <tr><td><strong>客服</strong></td><td>GitHub Issue，愛回不回</td><td>專人，30分鐘回應</td></tr>
+            <tr><td><strong>授權</strong></td><td>MIT-💩 License</td><td>商用授權 + 發票</td></tr>
+            <tr><td><strong>目的</strong></td><td>讓全世界都能驗💩</td><td>讓你老闆願意付錢買💩</td></tr>
+        </tbody>
+    </table>
+    <div style="text-align:center;margin:30px 0;">
+        <a href="business.html" class="btn">💼 查看商業版方案 →</a>
+    </div>
+
+    <!-- FAQ -->
+    <h2>❓ 常見問題</h2>
+    <div style="display:flex;flex-direction:column;gap:16px;margin:24px 0;">
+        <div class="card">
+            <h3>Q：這有法律效力嗎？</h3>
+            <p>SHA256 + 時間戳在台灣《電子簽章法》框架下具有參考效力，但不等同法院判決。<strong>它是你的第一道舉證材料，不是最後的終極武器。</strong>搭配律師才是正解。</p>
+        </div>
+        <div class="card">
+            <h3>Q：我的檔案會被上傳嗎？</h3>
+            <p>絕對不會。本頁所有計算使用瀏覽器原生 <code>Web Crypto API</code>，完全本地運算。沒有伺服器，沒有 cookie，沒有追蹤。</p>
+        </div>
+        <div class="card">
+            <h3>Q：對方也能算出相同 SHA256 偽造嗎？</h3>
+            <p>理論上找到碰撞的機率是 1/2^256，比宇宙裡的原子數量還少。<strong>實務上：不可能。</strong>SHA256 目前尚無已知碰撞攻擊。</p>
+        </div>
+        <div class="card">
+            <h3>Q：開源版跟商業版差在哪？</h3>
+            <p>開源版讓你<strong>自己驗</strong>，適合個人和開發者。商業版幫你<strong>自動存證、上鏈、寄函</strong>，適合企業。兩個的核心邏輯完全相同。</p>
+        </div>
+    </div>
+
+    <!-- WARNING -->
+    <div class="warning">
+        <h3>⚠️ 法律免責聲明</h3>
+        <p>v💩 Guardian 不會發動物理攻擊。它只會產生雜湊值、比對差異、跑滿螢💩動畫。</p>
+        <p>「💥謝謝」指的是對方的商業信用、社會名聲、法律地位💥謝謝，不是物理上的💥謝謝。請勿用於非法用途。我們不生產💩，我們只是讓說謊的💩自己掉出來。</p>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-box">
+        <h3 style="color:var(--poop-blue);margin-bottom:8px;">📌 關於 MIT-💩 License</h3>
+        <p>本專案採用 MIT License。你可以自由使用、修改、分發，包含商業用途。唯一條件：<strong>不要把別人拉的💩說成是你拉的。</strong>A_EQUALS_A = True。</p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p style="font-size:2.2em;margin-bottom:16px;">✨♻️🕳️💣😂🐕💩👑☠️⛓️💰🎪✅</p>
+    <p>v💩 Guardian 開源版 &nbsp;|&nbsp; © 2026 VPoop Inc. &nbsp;|&nbsp; <a href="https://github.com/ky46738-ops/vpoop-guardian" target="_blank" rel="noopener">GitHub</a></p>
+    <p style="margin-top:10px;">我們不生產💩，我們只是數位世界的廁所之神。</p>
+    <p style="margin-top:8px;color:#333;font-size:0.85em;">A_EQUALS_A = True &nbsp;|&nbsp; 本網站已受 v💩 憲法保護 &nbsp;|&nbsp; SHA256 不說謊</p>
+</footer>
+
+<script>
+    // ── SHA256 via Web Crypto API ──
+    let currentHash = '';
+
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const hashOutput = document.getElementById('hash-output');
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+        e.preventDefault(); dropZone.classList.remove('dragover');
+        if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) processFile(fileInput.files[0]); });
+
+    async function processFile(file) {
+        hashOutput.textContent = `⏳ 正在計算 ${file.name} 的 SHA256...`;
+        document.getElementById('verdict').style.display = 'none';
+        try {
+            const buffer = await file.arrayBuffer();
+            const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            currentHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            hashOutput.textContent = currentHash;
+            dropZone.querySelector('p').textContent = `✅ ${file.name} (${(file.size/1024).toFixed(1)} KB)`;
+        } catch(e) {
+            hashOutput.textContent = '❌ 計算失敗：' + e.message;
+        }
+    }
+
+    function compareHash() {
+        const verdict = document.getElementById('verdict');
+        const input = document.getElementById('compare-input').value.trim().toLowerCase();
+        if (!currentHash) { alert('請先上傳檔案計算 SHA256。'); return; }
+        if (!input) { alert('請貼上要比對的 SHA256。'); return; }
+        verdict.style.display = 'block';
+        if (currentHash === input) {
+            verdict.className = 'verdict pass';
+            verdict.innerHTML = '✅ A_EQUALS_A = True &nbsp;|&nbsp; SHA256 完全吻合。這💩確實是你（或他）拉的。';
+        } else {
+            verdict.className = 'verdict fail';
+            verdict.innerHTML = '💩 A_EQUALS_A = False &nbsp;|&nbsp; SHA256 不吻合！有人改過，或他在說謊。說謊者💥謝謝。';
+            triggerPoop();
+        }
+    }
+
+    function copyHash() {
+        if (!currentHash) { alert('請先上傳檔案。'); return; }
+        navigator.clipboard.writeText(currentHash).then(() => alert('✅ SHA256 已複製到剪貼簿！'));
+    }
+
+    // ── Poop Rain ──
+    function triggerPoop() {
+        const rain = document.getElementById('poop-rain');
+        rain.innerHTML = '';
+        rain.style.display = 'block';
+        const emojis = ['💩', '💩', '💩', '☠️', '💥', '💩', '😱', '💩'];
+        for (let i = 0; i < 40; i++) {
+            const el = document.createElement('div');
+            el.className = 'poop-emoji';
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+            el.style.animationDelay = (Math.random() * 1.2) + 's';
+            el.style.fontSize = (1.5 + Math.random() * 2) + 'em';
+            rain.appendChild(el);
+        }
+        setTimeout(() => { rain.style.display = 'none'; rain.innerHTML = ''; }, 4500);
+    }
+</script>
+</body>
+</html>
