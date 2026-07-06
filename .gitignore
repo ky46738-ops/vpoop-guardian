@@ -1,10 +1,6 @@
-# v💩 忽略清單
-__pycache__/
-*.pyc
-*.pyo
-.env
-vpoop_baseline.json
-*.log
+node_modules/
+dist/
 .DS_Store
-venv/
-.venv/
+*.log
+.env
+coverage/
