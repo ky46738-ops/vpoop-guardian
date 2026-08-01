@@ -1,27 +1,21 @@
-# 🛡️ 守護層模組 | VPoop Guardian
+# 🛡️ VPoop Guardian｜Public Seed
 
-🛡️ 守護層模組，負責過濾、防範與監控系統狀態。  
-Guardian module for filtering, protecting and monitoring system status.
+> 人生自古誰無💩  
+> 可以拿去看、拿去學、拿去用、拿去改、拿去分享、拿去賺錢。  
+> 但請保留來源脈絡，不要把別人的成果說成自己的。
 
-## 功能 | Features
+VPoop Guardian 是一個輕鬆說、認真做的公開種子：用可驗證的版本、檔案雜湊與來源紀錄，協助創作者和使用者保留作品脈絡。
 
-- ✅ 輸入驗證與清洗 | Input validation & sanitization
-- 🚨 異常事件檢測與報警 | Anomaly detection & alerting
-- 🔧 可擴展規則引擎 | Extensible rule engine
-- 📦 輕量無依賴設計 | Lightweight, zero dependencies
+## 開始
 
-## 使用方式 | Usage
+直接開啟 [index.html](./index.html) 即可使用互動頁面。它是純前端頁面，沒有帳號、追蹤或伺服器端資料處理。
 
-```bash
-# 執行守護檢查 | Run guardian checks
-npm start
-```
+## 公開邊界
 
-## 授權 | License
+本倉庫公開結果層與可驗證說明；不包含任何私有系統、內部設定或未公開的建造流程。
 
-MIT License
+## 授權與提醒
 
----
+採用 MIT License。使用、修改、分享與商業使用都歡迎；請保留原始授權與合理的來源標示。
 
-指向本體：🥃 LKMINI | Master Ledger  
-RootSHA256：6c0f6f487d8af27de4a8cee9f3fc853f0fbcf417cbd21acb56ac65c55adfcf34
+雜湊與版本紀錄能協助保存證據，但不取代個案查核、專業法律意見或正式法律程序。
