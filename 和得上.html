@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>和得上｜公開尺</title>
+<meta name="description" content="四條同時過，才是同一家。A=A">
+<style>
+:root{--bg:#fff7e8;--ink:#3e2410;--muted:#806244;--card:#fffef8;--line:#ead2a3;--gold:#d99a27;--gold2:#ffd974;--pink:#ff9fc7;--shadow:rgba(88,47,8,.16)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 18% 0,color-mix(in srgb,var(--pink) 22%,transparent),transparent 32%),var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.7}
+.wrap{width:min(100%,880px);margin:auto;padding:28px 20px 72px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.top a{color:var(--gold);font-weight:900;text-decoration:none}
+h1{font-size:clamp(2rem,8vw,3.4rem);line-height:1.1;letter-spacing:-.04em;color:var(--gold);margin:0 0 8px}
+.lead{font-size:1.15rem;font-weight:800;margin:0 0 8px}
+.eq{font-family:ui-monospace,Menlo,monospace;color:var(--muted);margin:0 0 28px}
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:linear-gradient(180deg,var(--card),color-mix(in srgb,var(--card) 88%,var(--gold2) 8%));border:1px solid var(--line);border-radius:22px;padding:20px 18px;box-shadow:0 14px 40px var(--shadow);min-height:168px}
+.n{display:inline-flex;width:32px;height:32px;border-radius:50%;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#3a1d08;font-weight:950;margin-bottom:8px}
+.card h2{margin:0 0 8px;font-size:1.25rem;color:var(--gold)}
+.card p{margin:0;color:var(--ink)}
+.card small{display:block;margin-top:10px;color:var(--muted)}
+.formula{margin-top:28px;background:#111;color:#9dff9d;border-radius:18px;padding:16px 18px;font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;font-size:.92rem}
+.note{color:var(--muted);margin-top:18px;font-size:.95rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="https://ky46738-ops.github.io/LKMini/">🥃LKMini</a>
+    <a href="https://github.com/ky46738-ops/vpoop-guardian">🐙</a>
+  </div>
+  <h1>和得上</h1>
+  <p class="lead">四條同時過，才是同一家。</p>
+  <p class="eq">過 ⇔ 認人 ∧ 路牌指盒子 ∧ 盒子能回家 ∧（2→1）　·　A = A</p>
+  <div class="grid">
+    <article class="card">
+      <span class="n">1</span>
+      <h2>認人</h2>
+      <p>鉤子認持有人。家有主人。</p>
+      <small>沒有人認＝沒有家。</small>
+    </article>
+    <article class="card">
+      <span class="n">2</span>
+      <h2>路牌指盒子</h2>
+      <p>牌子上的字指到這個膠囊。SHA256 只問路。</p>
+      <small>牌子不是家，也不是鑰匙。</small>
+    </article>
+    <article class="card">
+      <span class="n">3</span>
+      <h2>盒子能回家</h2>
+      <p>膠囊依公開規則反走一步。</p>
+      <small>盒子不是第二個家。</small>
+    </article>
+    <article class="card">
+      <span class="n">4</span>
+      <h2>洞裡收成一對</h2>
+      <p>傳送門是空的。Mini 2→1。多餘接點拿掉。</p>
+      <small>T融 = 1。不要在洞裡停。</small>
+    </article>
+  </div>
+  <div class="formula">T融 = 1
+κ = √[2m(V0−E)] / ℏ
+T牆 = [ 1 + V0² sinh²(κL) / (4E(V0−E)) ]⁻¹
+路牌 = SHA256(殼)
+左右牆各自算。不要把三個 T 乘在一起。</div>
+  <p class="note">任何人可驗這四條。怎麼穿門、證明怎麼生，留在這一家。別人的鏈只排隊。</p>
+</div>
+</body>
+</html>
