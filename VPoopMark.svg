@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none" aria-label="人生自古誰無 VPOOP">
+  <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 14 L10 58 H42 L34 14 Z" fill="none"/>
+    <path d="M13.5 38 L10 58 H42 L38.5 38 Z" fill="#D4870A" fill-opacity="0.55" stroke="none"/>
+    <rect x="19" y="41" width="12" height="10" rx="2" fill="white" fill-opacity="0.5" stroke="currentColor" stroke-width="1.5"/>
+    <line x1="6" y1="62" x2="46" y2="62" stroke-width="2.5"/>
+  </g>
+  <text x="62" y="48" font-size="28" font-weight="700" font-family="Georgia, serif" fill="currentColor">V💩</text>
+  <text x="128" y="48" font-size="13" font-family="Georgia, serif" fill="currentColor" font-style="italic" opacity="0.7">guardian</text>
+  <text x="62" y="68" font-size="8" font-family="Arial, sans-serif" fill="currentColor" opacity="0.5" letter-spacing="1.5">A=A · 誰無</text>
+</svg>
